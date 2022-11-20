@@ -8,7 +8,7 @@ const Addnote = () => {
     const [note, setNote] = useState({ title: "", description: "", tag: "" })
 
     // Function to add a note and passing it to "Addnote" component.
-    const handleClick = (e) => {
+    const handleClick = (e) => { 
         e.preventDefault();
         addNote(note.title, note.description, note.tag)
     }
