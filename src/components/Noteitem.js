@@ -4,16 +4,16 @@ import noteContext from '../context/notes/noteContext';
 const Noteitem = (props) => {
     const context = useContext(noteContext);
     const { deleteNote } = context;
-    const { note, updateNote } = props;
+    const { note, updateNote, } = props;
 
 
     return (
         // Card to show your previous notes
         <div className='p-5 col-md-3 my-3'>
             <div className="card">
-                <div className="card-body">
+                <div className={`card-body text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`}>
                     {/* Getting 'title' and 'description' from the database */}
-                    <h5 className="card-title">{note.title}</h5>
+                    <h5 className={`card-title `}>{note.title}</h5>
                     <p className="card-text">{note.description}</p>
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash mx-2" viewBox="0 0 16 16" onClick={() => {deleteNote(note._id)}}>
                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
