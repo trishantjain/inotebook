@@ -1,0 +1,25 @@
+.card-body{
+    background-color: aqua;
+}
+
+.note-tag {
+    position: absolute;
+    bottom: 0;
+    left: 70px;
+    overflow-wrap: anywhere;
+}
+
+.card{
+    height: 230px;
+    background-color: black;
+}
+
+.bi {
+    cursor: pointer;
+}
+
+.bi:hover {
+    width: 20px;
+    height: 20px;
+    box-shadow: 2px 4px 20px gray;
+}

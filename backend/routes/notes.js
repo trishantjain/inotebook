@@ -75,7 +75,7 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
         // Checking the correct user is trying to access the note or not
         if (note.user.toString() !== req.user.id) {
             return req.status(401).send("Not Allowed")
-        }
+        }  
 
         // Finding which note we have to update and after finding update it
         note = await Note.findByIdAndUpdate(req.params.id, { $set: newNote }, { new: true });
