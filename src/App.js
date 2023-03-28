@@ -29,27 +29,27 @@ function App() {
     }
   }
 
-  const showAlert = (message, type)=>{
+  const showAlert = (message, type) => {
     setAlert({
       msg: message,
       type: type
     })
     setTimeout(() => {
-        setAlert(null);
+      setAlert(null);
     }, 1500);
-}
+  }
 
   return (
     <>
       <NoteState>
         <Router>
           <Navbar mode={mode} toggleMode={toggleMode} />
-          <Alert alert={alert}/>
+          <Alert alert={alert} />
           <Routes>
-            <Route exact path="/" element={<Home showAlert={showAlert}  mode={mode} />}></Route>
-            <Route exact path="/about" element={<About showAlert={showAlert}  mode={mode} />}></Route>
-            <Route exact path="/login" element={<Login showAlert={showAlert}  mode={mode} />}></Route>
-            <Route exact path="/signup" element={<Signup showAlert={showAlert}  mode={mode} />}></Route>
+            <Route exact path="/" element={<Home showAlert={showAlert} mode={mode} />}></Route>
+            <Route exact path="/about" element={<About showAlert={showAlert} mode={mode} />}></Route>
+            <Route exact path="/login" element={<Login showAlert={showAlert} mode={mode} />}></Route>
+            <Route exact path="/signup" element={<Signup showAlert={showAlert} mode={mode} />}></Route>
           </Routes>
         </Router>
       </NoteState>
