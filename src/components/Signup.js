@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Signup = (props) => {
 
@@ -19,14 +19,14 @@ const Signup = (props) => {
         const json = await response.json();
         console.log(json)
 
-        if(json.success){
+        if (json.success) {
             localStorage.setItem('token', json.authToken);
             history('/');
             props.showAlert("Account created successfully", "success")
 
         }
 
-        else{
+        else {
             props.showAlert("Invalid Credentials", "danger")
         }
 
@@ -45,7 +45,7 @@ const Signup = (props) => {
                 {/* Name Input */}
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
-                    <input type="text" className={`form-control text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`} id="name" name='name' value={credentials.name} onChange={onChange}required minLength={6} aria-describedby="emailHelp" />
+                    <input type="text" className={`form-control text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`} id="name" name='name' value={credentials.name} onChange={onChange} required minLength={6} aria-describedby="emailHelp" />
                     <pre className="">* atleast 6 characters</pre>
 
                 </div>
@@ -60,7 +60,7 @@ const Signup = (props) => {
                 {/* Password Input */}
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
-                    <input type="password" className={`form-control text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`} name='password' value={credentials.password} onChange={onChange}required minLength={5} id="password" />
+                    <input type="password" className={`form-control text-${props.mode === 'light' ? 'dark' : 'light'} bg-${props.mode === 'light' ? 'light' : 'dark'}`} name='password' value={credentials.password} onChange={onChange} required minLength={5} id="password" />
                     <pre className="">* atleast 5 characters</pre>
                 </div>
 
