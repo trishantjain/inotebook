@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import noteContext from '../context/notes/noteContext';
-import "C:\\Users\\hp\\OneDrive\\React Folder\\inotebook\\src\\components\\noteitem.css"
+import "./noteitem.css"
 // import "src\\components\\noteitem.css"
 
 const Noteitem = (props) => {
