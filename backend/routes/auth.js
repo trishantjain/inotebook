@@ -31,7 +31,7 @@ router.post('/createuser', [
         }
 
         const salt = await bcrypt.genSalt(10);
-        secPass = await bcrypt.hash(req.body.password, salt);
+        const secPass = await bcrypt.hash(req.body.password, salt);
 
         // Create a new user
         user = await User.create({
@@ -46,7 +46,8 @@ router.post('/createuser', [
                 id: user.id
             }
         }
-
+        
+        //? Sending a Authorization token to the user after successful login
         // Signing authorization token
         const authToken = jwt.sign(data, JWT_SECRET);
 
@@ -81,6 +82,7 @@ router.post('/login', [
             return res.status(400).json({ error: "please try to login with correct credentials" });
         }
 
+        //? Comapring Password coming and saved password
         const passwordCompare = await bcrypt.compare(password, user.password)
         if (!passwordCompare) {
             success = false
@@ -88,12 +90,14 @@ router.post('/login', [
         }
 
         // Checking authorized token
+        //? Getting user id and storing it user object
         const data = {
             user: {
                 id: user.id
             }
         }
-
+        
+        //? Sending a Authorization token to the user after successful login
         // Signing authorization token
         const authToken = jwt.sign(data, JWT_SECRET);
         success = true;
@@ -107,11 +111,12 @@ router.post('/login', [
 
 
 // Getting details of loggedIn user using POST '/api/auth/getuser'
-
+//* This route will work if auth-token is verified in "fetchuser.js" 
 router.post('/getuser', fetchuser, async (req, res) => {
 
     try {
         const userId = req.user.id;
+        // It will fetch all the details of the loged In user except "password"
         const user = await User.findById(userId).select("-password");
         res.send(user);
     } catch (error) {
