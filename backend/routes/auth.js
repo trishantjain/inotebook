@@ -40,7 +40,7 @@ router.post('/createuser', [
             password: secPass
         });
 
-        // Checking authorized token
+        // Gettin User Id of the user to sent it to the auth-token to verify user at the time of login
         const data = {
             user: {
                 id: user.id
@@ -48,7 +48,7 @@ router.post('/createuser', [
         }
         
         //? Sending a Authorization token to the user after successful login
-        // Signing authorization token
+        // Adding User Id of the user in the auth-token
         const authToken = jwt.sign(data, JWT_SECRET);
 
         res.json({ authToken });
