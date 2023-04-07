@@ -19,7 +19,7 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
     }
 });
 
-// Route 2 ==> Add a new notes using POST '/api/notes/fetchallnotes'
+// Route 2 ==> Add a new notes using POST '/api/notes/addnote'
 router.post('/addnote', fetchuser, [
     body('title', 'Enter a valid Title').isLength({ min: 3 }),
     body('description', 'Description must be atleast 5 characters').isLength({ min: 6 })
@@ -93,6 +93,7 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 
     try {
         // Destructuring the getting array from the api
+        // eslint-disable-next-line
         const { title, description, tag } = req.body;
 
         // Checking whether the Id provided by user is exists or not
