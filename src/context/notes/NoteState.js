@@ -43,6 +43,7 @@ const NoteState = (props) => {
     const deleteNote = async (id) => {
 
         // API Call 
+        // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
             method: "DELETE",
             headers: {
@@ -62,6 +63,7 @@ const NoteState = (props) => {
     const editNote = async (id, title, description, tag) => {
 
         // API Call 
+        // eslint-disable-next-line
         const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
             method: "PUT",
             headers: {
